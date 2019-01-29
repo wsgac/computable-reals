@@ -144,7 +144,8 @@ denoting the number of binary digits after the decimal point")
          (n (1+ (integer-length k1)))
          (x1 (get-approx x n))
          (sign (signum x1))
-         (x2 (round-cr (* (abs x1) k1) n))
+         ;; (x2 (round-cr (* (abs x1) k1) n))
+	 (x2 (round-cr (* sign x1 k1) n))
          (*print-base* 10.))
     (multiple-value-bind (vor nach) (floor x2 k1)
       (when flag (terpri stream))
@@ -595,3 +596,26 @@ denoting the number of binary digits after the decimal point")
   "tangent for CREALs"
   (check-type x creal)
   (/r (sin-r x) (cos-r x)))
+
+;;; Some convenience functions
+(defun 1+r (x)
+  "Add 1 to X of type CREAL"
+  (check-type x creal)
+  (+r x 1))
+
+(defun 1-r (x)
+  "Subtract 1 from X of type CREAL"
+  (check-type x creal)
+  (-r x 1))
+
+(defun number-to-creal (x)
+  "Convert X to CREAL. Complex numbers not supported at the moment."
+  (etypecase x
+    (complex (error 'simple-type-error
+		    :format-control "Type COMPLEX not currently supported"))
+    (number (*r +1-R+ (rational x)))
+    (creal x)))
+
+(defun creal-to-number (x &key (type *read-default-float-format*))
+  "Convert X (of type CREAL) to "
+  )

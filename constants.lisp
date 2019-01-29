@@ -13,4 +13,5 @@
 (defvar +PI/2-R+ nil "pi/2 as CREAL")
 (defvar +PI/4-R+ nil "pi/4 as CREAL")
 
-
+(defvar +0-R+ nil "0 as CREAL")
+(defvar +1-R+ nil "1 as CREAL")

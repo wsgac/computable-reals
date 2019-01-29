@@ -13,7 +13,11 @@
                  (ash-r (atan-r1 1/239) 2))
       +2PI-R+ (ash-r +pi-r+ 1)
       +PI/2-R+ (ash-r +pi-r+ -1)
-      +PI/4-R+ (ash-r +pi-r+ -2))
+      +PI/4-R+ (ash-r +pi-r+ -2)
+      +0-R+ (make-real #'(lambda (x)
+			   (declare (ignore x))
+			   0))
+      +1-R+ (+r 1 +0-R+))
 
 (get-approx +log2-r+ 200)
 

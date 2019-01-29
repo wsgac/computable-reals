@@ -28,10 +28,16 @@
    #:atan-r
    #:expt-r
    #:tan-r
+   #:1+r
+   #:1-r
+   #:number-to-creal
+   #:creal-to-number
 
    ;; constants.lisp
    #:+log2-r+
    #:+pi-r+
    #:+2pi-r+
    #:+pi/2-r+
-   #:+pi/4-r+))
+   #:+pi/4-r+
+   #:+0-r+
+   #:+1-r+))
